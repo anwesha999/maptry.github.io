@@ -1,0 +1,38 @@
+---
+title: "My Homepage"
+author: "anwesha sinha"
+date: "23-06-2018"
+---
+## View location in Graph
+
+
+```{r}
+library(leaflet)
+my_map <- leaflet() %>%
+addTiles()
+my_map
+
+library(leaflet)
+my_map <- my_map %>%
+addMarkers(lat=25.5941, lng=85.1376,
+popup="My Location")
+my_map
+
+library(jsonlite)
+library(leaflet)
+data <- fromJSON("https://data.cityofnewyork.us/resource/43hw-uvdj.json", flatten = TRUE)
+
+artLatLong <- data.frame(
+  lat = unlist(lapply(data$the_geom.coordinates, `[[`, 2)),
+  lng = unlist(lapply(data$the_geom.coordinates, `[[`, 1))
+)
+
+artIcons <- makeIcon(
+  iconUrl = "https://people.ucsc.edu/~admcnich/images/pin.svg",
+  iconWidth = 35*215/230, iconHeight = 35,
+  iconAnchorX = 35*215/230/2, iconAnchorY = 35
+)
+artLatLong %>% leaflet() %>% addTiles() %>%
+addMarkers(icon=artIcons)
+
+```

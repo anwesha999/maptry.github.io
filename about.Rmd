@@ -1,0 +1,25 @@
+---
+title: "about"
+author: "anwesha"
+date: "June 23, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## About Graph Website
+
+
+```{r}
+read.csv("hospital-data.csv")
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
