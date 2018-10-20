@@ -1,5 +1,5 @@
 # maptry.github.io
-my website
+Applying Data Analysis & Data Visualisation through R on a sample DataSet
 #regression
 http://rpubs.com/anwesha/regression
 
